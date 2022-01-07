@@ -1,4 +1,6 @@
-/*
+/******************************************************************************
+ * I just realised you can put things in a box like this.                     *
+ ******************************************************************************
 
 In order to be able to better fight various epidemics in a region, the
 department of medicine of a major university has launched a large study.
