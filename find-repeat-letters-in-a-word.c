@@ -37,3 +37,51 @@ Output:
 0
 
 */
+
+#include <stdio.h>
+
+int main(void)
+{
+    char inputString[51];
+    int countArray[256], i, j;
+    i = 0;
+    j = 0;
+    int counter = 0;
+    
+    scanf("%s", inputString);
+
+    // Initialise countArray
+    for (i = 0; i < 256; i++)
+    {
+        countArray[i] = 0;
+    }
+
+    while (inputString[j] != '\0')
+    {
+        countArray[inputString[j]]++;
+        j++;
+    }
+    
+    /*
+    for (i = 0; i < 256; i++)
+    {
+        printf("%d ", countArray[i]);
+    }
+    */
+    
+    for (i = 0; i < 256; i++)
+    {
+        if (countArray[i] > 1)
+        {
+            counter++;
+        }
+    }
+    
+    printf("%d", counter);
+
+    return 0;
+
+}
+
+// I didn't end up iterating the way it said to do in the problem, but I still
+// got the answers right.
