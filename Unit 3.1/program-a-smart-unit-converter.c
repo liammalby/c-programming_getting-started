@@ -52,4 +52,67 @@ Output
 
 */
 
+#include <stdio.h>
 
+// Prototype functions
+double metersToFeet(double);
+double gramsToPounds(double);
+double cToF (double);
+
+int main(void)
+{
+    int numValues = 0;
+    int i = 0;
+    double conversion, inputValue;
+    char unit;
+    unit = 'a';
+    inputValue = 0.0;
+    conversion = 0;
+
+    scanf("%d\n", &numValues);
+    
+    for (i = 0; i < numValues; i++)
+    {
+        scanf("%lf %c", &inputValue, &unit);
+        if (unit == 'm')
+        {
+            conversion = metersToFeet(inputValue);
+            printf("%.6lf ft\n", conversion);
+        }
+        else if (unit == 'g')
+        {
+            conversion = gramsToPounds(inputValue);
+            printf("%.6lf lbs\n", conversion);
+        }
+        else if (unit == 'c')
+        {
+            conversion = cToF (inputValue);
+            printf("%.6lf f\n", conversion);
+        }       
+    }
+    return 0;
+}
+
+// Convert meters to feet
+double metersToFeet(double meters)
+{
+    double feet = 0.0;
+    feet = meters * 3.2808;
+    return feet;
+}
+
+// Convert grams to pounds
+double gramsToPounds(double grams)
+{
+    double pounds = 0.0;
+    pounds = grams * 0.002205;
+    return pounds;
+}
+
+// Convert Fahrenheit to Celsius
+double cToF (double tempCels)
+{
+    double fahr = 0.0;
+    fahr = 32 + 1.8 * tempCels;
+    return fahr;
+}
