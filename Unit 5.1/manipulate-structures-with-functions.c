@@ -49,39 +49,44 @@
 
 #include <stdio.h>
 
-struct date {
-        int year;
-        int month;
-        int day;
-    };
+struct date
+{
+    int year;
+    int month;
+    int day;
+};
 
 /* function prototypes */
 void printDate(struct date);
 void readDate(struct date *);
 struct date advanceDay(struct date);
 
-int main(void) {
-	struct date today, tomorrow;
-	readDate(&today);
-	printDate(today);
-	tomorrow = advanceDay(today);
-	printDate(tomorrow);
-	return 0;
+int main(void)
+{
+    struct date today, tomorrow;
+    readDate(&today);
+    printDate(today);
+    tomorrow = advanceDay(today);
+    printDate(tomorrow);
+    return 0;
 }
 
-void printDate(struct date printer) {
+void printDate(struct date printer)
+{
     printf("%02d/", printer.month);
     printf("%02d/", printer.day);
     printf("%d\n", printer.year);
 }
 
-void readDate(struct date *readPtr) {
+void readDate(struct date *readPtr)
+{
     scanf("%d ", &(*readPtr).year);
     scanf("%d ", &(*readPtr).month);
     scanf("%d ", &(*readPtr).day);
 }
 
-struct date advanceDay(struct date dateInput) {
+struct date advanceDay(struct date dateInput)
+{
     int thirtyDaysInMonth = 0;
     int thirtyOneDaysInMonth = 0;
 
@@ -89,45 +94,42 @@ struct date advanceDay(struct date dateInput) {
         (dateInput.month == 9) ||
         (dateInput.month == 4) ||
         (dateInput.month == 6) ||
-        (dateInput.month == 11)
-        )
+        (dateInput.month == 11))
     {
         thirtyDaysInMonth = 1;
         thirtyOneDaysInMonth = 0;
-
-    } else if(
+    }
+    else if (
         (dateInput.month == 1) ||
         (dateInput.month == 2) ||
         (dateInput.month == 3) ||
         (dateInput.month == 5) ||
         (dateInput.month == 7) ||
         (dateInput.month == 8) ||
-        (dateInput.month == 10)
-        )
+        (dateInput.month == 10))
     {
         thirtyDaysInMonth = 0;
         thirtyOneDaysInMonth = 1;
     }
-
-
 
     if ((dateInput.day == 31) && (dateInput.month == 12))
     {
         dateInput.day = 1;
         dateInput.month = 1;
         dateInput.year++;
-
-    } else if(thirtyDaysInMonth && (dateInput.day == 30))
+    }
+    else if (thirtyDaysInMonth && (dateInput.day == 30))
     {
         dateInput.day = 1;
         dateInput.month++;
-
-    } else if(thirtyOneDaysInMonth && dateInput.day == 31)
+    }
+    else if (thirtyOneDaysInMonth && dateInput.day == 31)
     {
         dateInput.day = 1;
         dateInput.month++;
-
-    } else {
+    }
+    else
+    {
         dateInput.day++;
     }
     return dateInput;
